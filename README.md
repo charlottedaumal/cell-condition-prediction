@@ -14,7 +14,7 @@ We used several linear and nonlinear method to achieve our results, such as :
 
 ## Organisation
 
-One can find our mini project under the 
+One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository
 
 
 ## How to run our code
