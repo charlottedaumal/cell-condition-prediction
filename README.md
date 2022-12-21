@@ -14,6 +14,8 @@ We used several linear and nonlinear method to achieve our results, such as :
 
 ## Organisation
 
+One can find our mini project under the 
+
 
 ## How to run our code
 
