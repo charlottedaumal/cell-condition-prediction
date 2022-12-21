@@ -8,8 +8,11 @@ The goal of our Machine Learning mini project is to predict under which experime
 We used several linear and nonlinear method to achieve our results, such as :
 
 *Logistic regression
+
 *Random Forest Classification
+
 *Neural networks
+
 * PCA visualization
 
 ## Organisation
