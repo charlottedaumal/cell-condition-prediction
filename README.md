@@ -14,7 +14,10 @@ We used several linear and nonlinear method to achieve our results, such as :
 
 ## Organisation
 
-One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository
+One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository. It contains:
+
+* A PDF file which explains the linear and nonlinear methods we implemented and the results it gave us.
+* a README file
 
 
 ## How to run our code
