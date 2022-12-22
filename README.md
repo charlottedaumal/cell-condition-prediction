@@ -3,6 +3,8 @@ The goal of our Machine Learning mini project is to predict under which experime
 
 ## Requirements
 
+* Download the .zip files available in this repository on Google Drive : https://drive.google.com/drive/folders/19PFEhJPrm3AXHuXpxQQnzs8CfaN4v8bU?usp=share_link
+
 ## Methods used to build models
 
 We used several linear and nonlinear method to achieve our results, such as :
@@ -24,5 +26,5 @@ One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML
 
 ## Team Members
 
-Charlotte Daumal
-Clémence Kiehl
+* Charlotte Daumal
+* Clémence Kiehl
