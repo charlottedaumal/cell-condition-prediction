@@ -18,13 +18,9 @@ correlated_columns_indices = findall(≈(1), cor(Matrix(all_clean_const_train_in
 correlated_columns_indices = sort(union(idx.I[1] for idx in correlated_columns_indices)); #sorting the correlated columns' indices and keeping only one index to avoid pairs and removing to many columns
 all_clean_uncorrelated_train_input = select(all_clean_const_train_input, Not(correlated_columns_indices)) #keeping uncorrelated columns
 
-
-
-
-
-
-
-
+mdenoise = fit!(machine(PCA(maxoutdim = 5000), all_clean_uncorrelated_train_input), verbosity = 0); #fitting a PCA machine for denoising the training data
+report(mdenoise) #reporting the main characteristics of the PCA denoising machine 
+cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_input) #keeping only the predictors that explain almost all the variance in the training data
 
 xgb = XGBoostClassifier()
 
