@@ -18,11 +18,19 @@ We used several linear and nonlinear method to achieve our results, such as :
 
 One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository. It contains:
 
-* a folder **src** that contains our code in the format of .jl scripts, more specifically:
-  * a file
+* a folder **src** that contains the code in the format of .jl scripts, more specifically the code for:
+  * visualization of the data.
+  * denoising the data.
+  * a model based on a linear method.
+  * models based non-linear methods.
 * a folder **visualization** that contains the different visualizations of the data, more specifically:
-* a folder **models_assessment** that contains some evaluations of our models such as graph of the proprotion of variance explained on the training dataset according to the data's predictors and confusion matrices of all models.
-* a report which explains how we cleaned/visulaized the data, which linear and nonlinear methods we implemented and the results we got.
+  * a PCA visualization of the data with the vectors.
+  * a PCA visualization of the data in 2D to identify potential clusters.
+  * a PCA visualization of the data in 3D to identify potential clusters.
+* a folder **models_assessment** that contains some evaluations of our models, more specifically:
+  * graphs of the proportion of the variance and tcumulative proportion of variance explained by data's predictors.
+  * confusion matrices for all our models.
+* a report which explains how we cleaned/visualized the data, which linear and nonlinear methods we implemented and the results we got.
 
 ## Instructions to run our code
 
