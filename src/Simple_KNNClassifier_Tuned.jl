@@ -46,8 +46,7 @@ all_clean_uncorrelated_train_input = select(all_clean_const_train_input, Not(cor
 
 model_KNN = SimpleKNNClassifier() #determining the model's type 
 
-self_tuning_model_KNN = TunedModel(model = model_KNN, resampling = CV(nfolds = 4), tuning = Grid(),
-                                   range = range(model_KNN, :K, values = 2:8), measure = MisclassificationRate()) #self-tuning the K value of the SimpleKNNClassifier model
+self_tuning_model_KNN = TunedModel(model = model_KNN, resampling = CV(nfolds = 4), tuning = Grid(), range = range(model_KNN, :K, values = 2:8), measure = MisclassificationRate()) #self-tuning the K value of the SimpleKNNClassifier model
 self_tuning_mach_KNN = machine(self_tuning_model_KNN, all_clean_uncorrelated_train_input, all_train_data_output) |> fit! #fitting the tuned machine
 
 rep_KNN = report(self_tuning_mach_KNN) #reporting the main characteristics of the tuned machine
