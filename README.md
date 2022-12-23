@@ -1,6 +1,6 @@
 # Epigenetics and Memory ML Project
 
-Welcome to our Machine Learning Miniproject.  
+Welcome to our Machine Learning Mini Project.  
 
 Here we tried to predict under which experimental conditions different cell types were measured, given their gene expression level by building models based on linear and non-linear methods.
 
