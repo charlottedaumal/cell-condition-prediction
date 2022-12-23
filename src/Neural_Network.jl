@@ -1,4 +1,4 @@
-
+#loading useful packages
 using Pkg
 Pkg.activate(joinpath(Pkg.devdir(), "MLCourse"))
 using CSV, DataFrames, MLJ, MLJLinearModels, Random, Distributions, MLJMultivariateStatsInterface, Plots
