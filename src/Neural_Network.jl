@@ -4,10 +4,8 @@ Pkg.activate(joinpath(Pkg.devdir(), "MLCourse"))
 using CSV, DataFrames, MLJ, MLJLinearModels, Random, Distributions, MLJMultivariateStatsInterface, Plots
 
 train_data = CSV.read(joinpath(@__DIR__, "data", "train.csv"), DataFrame); #loading the .CSV file containing the training data
-test_data = CSV.read(joinpath(@__DIR__, "data", test.csv"), DataFrame); #loading the .CSV file containing the test data
 
 dropmissing!(train_data); #removing rows with missing values for train data
-dropmissing!(test_data); #removing rows with missing values for test data
 coerce!(train_data, :labels => Multiclass); #changing the type of the labels column to Multiclass
 
 all_train_data_output = train_data.labels; #DataFrame containing the labels of the training data
@@ -28,21 +26,17 @@ cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_i
 #implementation of a neuronal network classifier machine 
 neuronal_network_classifier_machine = machine(NeuralNetworkClassifier(builder=MLJFlux.Short(n_hidden=128, dropout=0.1, σ=relu), batch_size=32, epochs=30),cleaned_train_input_PCA, all_train_data_output)|> fit!; #fitting the NeuralNetwork machine
 
+confusion_matrix(predict_mode(neuronal_network_classifier_machine), all_train_data_output) # computation of confusion matrix 
+training_auc = auc(predict(neuronal_network_classifier_machine), all_train_data_output)#computation of training AUC
+misclassification_rate = mean(predict(neuronal_network_classifier_machine) .!= all_train_data_output) #computation of missclassification rate
+
+test_data = CSV.read(joinpath(@__DIR__, "data", test.csv"), DataFrame); #loading the .CSV file containing the test data
+
+dropmissing!(test_data); #removing rows with missing values for test data
 all_clean_const_test_data = select(test_data, Not(const_columns_indices)); #keeping the same columns as for the training data for which the standard deviation is larger than 0
 all_clean_uncorrelated_test_data = select(all_clean_const_test_data, Not(correlated_columns_indices));  #keeping the same uncorrelated columns as for the training data
-
 cleaned_test_data_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_test_data); #keeping only the same predictors that explain almost all the variance as for the training data
 
-
 prediction_neural_network=String.(predict_mode(neuronal_network_classifier_machine, cleaned_test_data_PCA))  #predicting labels with the model on the test data
-
-
 df_neural_network=DataFrame(id=1:3093, prediction=prediction_neural_network) #creating a DataFrame of the predicted labels
 CSV.write("./test_predictions_NeuralNetworkClassifier_PCA_Final.csv", df_neural_network) #saving a .CSV file with all the labels' predictions
-
-
-confusion_matrix(predict_mode(neuronal_network_classifier_machine), all_train_data_output) # computation of confusion matrix 
-
-training_auc = auc(predict(neuronal_network_classifier_machine), all_train_data_output)#computation of training AUC
-
-misclassification_rate = mean(predict(neuronal_network_classifier_machine) .!= all_train_data_output) #computation of missclassification rate
