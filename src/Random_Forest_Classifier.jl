@@ -22,6 +22,7 @@ mdenoise = fit!(machine(PCA(maxoutdim = 5000), all_clean_uncorrelated_train_inpu
 report(mdenoise) #reporting the main characteristics of the PCA denoising machine 
 cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_input) #keeping only the predictors that explain almost all the variance in the training data
 
+
 xgb = XGBoostClassifier()  # using the method XGBoostClassifier() for the tuning
 tuned_XGB_mod= (TunedModel(model = xgb, resampling = CV(nfolds = 4), measure= MisclassificationRate(), tuning = Grid(goal = 10),range = [range(xgb, :eta,lower = 1e-2, upper = .1, scale = :log), range(xgb, :max_depth, lower = 2, upper = 6), range(xgb, :min_child_weight, lower = 0.5, upper = 1.5)])) # tuning the model for hyperparameters eta, max_depth and min_child_weight
 mach_XGB=machine(tuned_XGB_mod, cleaned_train_input_PCA , all_train_data_output) # implementing a machine on the previously cleaned training data
@@ -44,7 +45,6 @@ dropmissing!(test_data); #removing rows with missing values
 all_clean_const_test_data = select(test_data, Not(const_columns_indices)); #keeping the same columns as for the training data for which the standard deviation is larger than 0
 all_clean_uncorrelated_test_data = select(all_clean_const_test_data, Not(correlated_columns_indices)); #keeping the same uncorrelated columns as for the training data
 cleaned_test_data_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_test_data); #keeping only the same predictors that explain almost all the variance as for the training data
-
 
 test_predictions = predict_mode(tuned_mach_XGB, cleaned_test_data_PCA); #predicting labels with the tuned model on the test data
 df_test_predictions = DataFrame(id = [i for i in 1:length(test_predictions)], prediction = [test_predictions[i] for i in 1:length(test_predictions)]); #creating a DataFrame of the predicted labels
