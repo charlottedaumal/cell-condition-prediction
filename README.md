@@ -41,7 +41,8 @@ _Note_: depending on the model, it can take very long to get a result.
 
 1. Download the .ZIP files available in this repository on Google Drive : https://drive.google.com/drive/folders/19PFEhJPrm3AXHuXpxQQnzs8CfaN4v8bU?usp=share_link
 2. Place these files in a folder named "data" in the GitHub repository on your computer.
-3. Run any file from the src folder to either visualize the data or run specific models based on linear or non-linear methods.
+3. Unzip the .ZIP files.
+4. Run any file from the src folder to either visualize the data or run specific models based on linear or nonlinear methods.
 
 ## Team Members
 
