@@ -41,6 +41,7 @@ confusion_matrix(predict_mode(tuned_machine_lc), all_train_data_output) #printin
 training_auc = auc(predict(tuned_machine_lc), all_train_data_output) #computing the training auc
 misclassification_rate = mean(predict(tuned_machine_lc) .!= all_train_data_output) #computing the misclassification rate
 
+
 test_data = CSV.read(joinpath(@__DIR__, "data", "test.csv"), DataFrame); #loading the .CSV file containing the test data
 
 dropmissing!(test_data); #removing rows with missing values
