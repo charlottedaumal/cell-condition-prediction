@@ -23,12 +23,14 @@ mdenoise = fit!(machine(PCA(maxoutdim = 5000), all_clean_uncorrelated_train_inpu
 report(mdenoise) #reporting the main characteristics of the PCA denoising machine 
 cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_input) #keeping only the predictors that explain almost all the variance in the training data
 
+
 #implementation of a neuronal network classifier machine 
 neuronal_network_classifier_machine = machine(NeuralNetworkClassifier(builder=MLJFlux.Short(n_hidden=128, dropout=0.1, σ=relu), batch_size=32, epochs=30),cleaned_train_input_PCA, all_train_data_output)|> fit!; #fitting the NeuralNetwork machine
 
 confusion_matrix(predict_mode(neuronal_network_classifier_machine), all_train_data_output) # computation of confusion matrix 
 training_auc = auc(predict(neuronal_network_classifier_machine), all_train_data_output)#computation of training AUC
 misclassification_rate = mean(predict(neuronal_network_classifier_machine) .!= all_train_data_output) #computation of missclassification rate
+
 
 test_data = CSV.read(joinpath(@__DIR__, "data", test.csv"), DataFrame); #loading the .CSV file containing the test data
 
