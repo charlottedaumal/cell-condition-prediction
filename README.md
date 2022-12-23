@@ -25,7 +25,6 @@ One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML
 * a folder **visualization** that contains the different visualizations of the data, more specifically:
   * a PCA visualization of the data with the vectors.
   * a PCA visualization of the data in 2D to identify potential clusters.
-  * a PCA visualization of the data in 3D to identify potential clusters.
 * a folder **models_assessment** that contains some evaluations of our models, more specifically:
   * graphs of the proportion of the variance and tcumulative proportion of variance explained by data's predictors.
   * confusion matrices for all our models.
