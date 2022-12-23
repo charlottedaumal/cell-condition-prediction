@@ -9,7 +9,7 @@ _Note_: if you get an error when loading packages, use the command 'Pkg.add("The
 
 ## Methods used to build models
 
-We used several linear and nonlinear method to achieve our results, such as :
+We used several linear and non-linear methods to achieve our results, such as :
 
 * Logistic regression
 * Random Forest Classification
