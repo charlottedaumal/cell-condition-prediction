@@ -3,6 +3,7 @@ Pkg.activate(joinpath(Pkg.devdir(), "MLCourse"))
 using CSV, DataFrames, MLJ, MLJLinearModels, Random, Distributions, MLJMultivariateStatsInterface, Plots
 
 train_data = CSV.read(joinpath(@__DIR__, "data", "train.csv"), DataFrame); #loading the .CSV file containing the training data
+test_data = CSV.read(joinpath(@__DIR__, "data" "test.csv"), DataFrame); #loading the .CSV file containing the test data
 
 dropmissing!(train_data); #removing rows with missing values
 coerce!(train_data, :labels => Multiclass); #changing the type of the labels column to Multiclass
@@ -38,8 +39,6 @@ confusion_matrix(predict_mode(tuned_mach_XGB), all_train_data_output) #computati
 training_auc = auc(predict(tuned_mach_XGB), all_train_data_output) # computation of the AUC
 misclassification_rate = mean(predict(tuned_mach_XGB) .!= all_train_data_output) # computation of the misclassification rate 
 
-
-test_data = CSV.read(joinpath(@__DIR__, "test.csv"), DataFrame); #loading the .CSV file containing the test data
 
 dropmissing!(test_data); #removing rows with missing values
 all_clean_const_test_data = select(test_data, Not(const_columns_indices)); #keeping the same columns as for the training data for which the standard deviation is larger than 0
