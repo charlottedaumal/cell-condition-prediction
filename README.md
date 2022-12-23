@@ -19,7 +19,7 @@ We used several linear and nonlinear method to achieve our results, such as :
 One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository. It contains:
 
 * a folder **src** that contains our code in the format of .jl scripts, more specifically:
- - a file
+  * a file
 * a folder **visualization** that contains the different visualizations of the data, more specifically:
 * a folder **models_assessment** that contains some evaluations of our models such as graph of the proprotion of variance explained on the training dataset according to the data's predictors and confusion matrices of all models.
 * a report which explains how we cleaned/visulaized the data, which linear and nonlinear methods we implemented and the results we got.
