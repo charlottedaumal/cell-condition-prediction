@@ -50,4 +50,4 @@ cleaned_test_data_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_test_data
 
 test_predictions = predict_mode(tuned_machine_lc, cleaned_test_data_PCA); #predicting labels with the tuned model on the test data
 df_test_predictions = DataFrame(id = [i for i in 1:length(test_predictions)], prediction = [test_predictions[i] for i in 1:length(test_predictions)]); #creating a DataFrame of the predicted labels
-CSV.write(joinpath(@__DIR__, "test_predictions_logistic_classifier_L1_PCA_Final.csv"), df_test_predictions) #saving a .CSV file with all the labels' predictions
+CSV.write(joinpath(@__DIR__, "test_predictions_logistic_classifier_L1_PCA_Final_optimized.csv"), df_test_predictions) #saving a .CSV file with all the labels' predictions
