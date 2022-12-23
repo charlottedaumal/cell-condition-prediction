@@ -27,13 +27,13 @@ cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_i
 model_lc = LogisticClassifier(penalty = :l1); #determining the model's type with a Lasso Regularization
 
 self_tuning_model_lc = TunedModel(model = model_lc,resampling = CV(nfolds = 6),tuning = Grid(),
-range = range(model_lc, :lambda, values = 1e-8:1e-2:1e-1)); #self-tuning the lambda value in the Lasso Regularization of the model
+range = range(model_lc, :lambda, values = 1e-12:5e-10:1e-8)); #self-tuning the lambda value in the Lasso Regularization of the model
 self_tuning_mach_lc = machine(self_tuning_model_lc, cleaned_train_input_PCA, all_train_data_output) |> fit! ; #fitting the tuned machine
 
 rep_lc = report(self_tuning_mach_lc) #reporting the main characteristics of the tuned machine 
 evaluate!(machine(report(self_tuning_mach_lc).best_model, cleaned_train_input_PCA, all_train_data_output), measure = MisclassificationRate()) #evaluating the best model found during tuning
 
-tuned_machine_lc = machine(LogisticClassifier(penalty = :l1, lambda = 1e-8), cleaned_train_input_PCA, all_train_data_output); #choosing the best value for lambda in the Lasso Regularization
+tuned_machine_lc = machine(LogisticClassifier(penalty = :l1, lambda = 9.501e-9), cleaned_train_input_PCA, all_train_data_output); #choosing the best value for lambda in the Lasso Regularization
 fit!(tuned_machine_lc); #fitting the machine with the best value for lambda in the Lasso Regularization
 
 #assessing the model
