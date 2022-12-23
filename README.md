@@ -34,7 +34,8 @@ One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML
 ## Requirements
 
 * Use a Julia environment **v1.7**.
-* In order to run our .jl scripts, please be in the repository *ClemenceKiehl/Epigenetics_and_Memory_ML_Project*. The different results can be reproduced by running the .jl scripts in the repository src.
+* In order to run our .jl scripts, please be in the repository *ClemenceKiehl/Epigenetics_and_Memory_ML_Project*. The different results can be reproduced by running the .jl scripts in the repository src.  
+
 _Note_: depending on the model, it can take very long to get a result.
 
 ## Instructions to run our code
