@@ -22,7 +22,7 @@ all_clean_uncorrelated_train_input = select(all_clean_const_train_input, Not(cor
 
 m_PCA = fit!(machine(PCA(), all_clean_uncorrelated_train_input), verbosity = 0); #fitting a PCA machine on the previously cleaned training data
 
-#plotting the proportion of the variance explained by the predictors of the training data
+#plotting the proportion of the variance and the cumulative proportion of variance explained by the training data's predictors
 vars = report(m_PCA).principalvars ./ report(m_PCA).tvar;
 p1 = plot(vars, label = nothing, yscale = :log10,
           xlabel = "component", ylabel = "proportion of variance explained")
