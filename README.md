@@ -3,9 +3,9 @@ The goal of our Machine Learning mini project is to predict under which experime
 
 ## Requirements
 
-Use a Julia environment **v1.7**.  
-
-The package Pkg is essential to run all the code scripts and to use the MLCourse related packages.  
+* Use a Julia environment **v1.7**.
+* The package **Pkg** is essential to run all the code scripts and to use the MLCourse related packages.
+_Note_: if you get an error when loading packages, use the command 'Pkg.add("The wanted Package")' to include the missing packages in your .jl script.
 
 ## Methods used to build models
 
