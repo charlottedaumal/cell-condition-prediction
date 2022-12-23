@@ -22,58 +22,36 @@ mdenoise = fit!(machine(PCA(maxoutdim = 5000), all_clean_uncorrelated_train_inpu
 report(mdenoise) #reporting the main characteristics of the PCA denoising machine 
 cleaned_train_input_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_train_input) #keeping only the predictors that explain almost all the variance in the training data
 
-xgb = XGBoostClassifier()
+xgb = XGBoostClassifier()  # using the method XGBoostClassifier() for the tuning
+tuned_XGB_mod= (TunedModel(model = xgb, resampling = CV(nfolds = 4), measure= MisclassificationRate(), tuning = Grid(goal = 10),range = [range(xgb, :eta,lower = 1e-2, upper = .1, scale = :log), range(xgb, :max_depth, lower = 2, upper = 6), range(xgb, :min_child_weight, lower = 0.5, upper = 1.5)])) # tuning the model for hyperparameters eta, max_depth and min_child_weight
+mach_XGB=machine(tuned_XGB_mod, cleaned_train_input_PCA , all_train_data_output) # implementing a machine on the previously cleaned training data
+fit!(mach_XGB) # fitting the machine
 
-tuned_XGB_mod= (TunedModel(model = xgb, resampling = CV(nfolds = 4), measure= MisclassificationRate(), tuning = Grid(goal = 10),
+report(mach_XGB).best_model ##reporting the main characteristics of the machine
+evaluate!(machine(report(mach_XGB).best_model, cleaned_train_input_PCA , all_train_data_output), measure = MisclassificationRate()) #evaluating the best model found 
 
-range = [range(xgb, :eta,lower = 1e-2, upper = .1, scale = :log), range(xgb, :max_depth, lower = 2, upper = 6), range(xgb, :min_child_weight, lower = 0.5, upper = 1.5)]))
+tuned_mach_XGB = machine(XGBoostClassifier(eta = 0.10000000000000002, max_depth = 6, min_child_weight = 0.5), cleaned_train_input_PCA, all_train_data_output);  # #choosing the best value for eta, max_depth and min_child_weight
+fit!(tuned_mach_XGB) # fitting the tuned machine
 
-
-
-
-
-mach_XGB=machine(tuned_XGB_mod, cleaned_train_input_PCA , all_train_data_output)
-
-fit!(mach_XGB)
-
-
-
-report(mach_XGB).best_model
-
-evaluate!(machine(report(mach_XGB).best_model, cleaned_train_input_PCA , all_train_data_output), measure = MisclassificationRate())
+confusion_matrix(predict_mode(tuned_mach_XGB), all_train_data_output) #computation of the confusion matrix
+training_auc = auc(predict(tuned_mach_XGB), all_train_data_output) # computation of the AUC
+misclassification_rate = mean(predict(tuned_mach_XGB) .!= all_train_data_output) # computation of the misclassification rate 
 
 
+test_data = CSV.read(joinpath(@__DIR__, "test.csv"), DataFrame); #loading the .CSV file containing the test data
 
-tuned_mach_XGB = machine(XGBoostClassifier(eta = 0.10000000000000002, max_depth = 6, min_child_weight = 0.5), cleaned_train_input_PCA, all_train_data_output);
+dropmissing!(test_data); #removing rows with missing values
+all_clean_const_test_data = select(test_data, Not(const_columns_indices)); #keeping the same columns as for the training data for which the standard deviation is larger than 0
+all_clean_uncorrelated_test_data = select(all_clean_const_test_data, Not(correlated_columns_indices)); #keeping the same uncorrelated columns as for the training data
+cleaned_test_data_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_test_data); #keeping only the same predictors that explain almost all the variance as for the training data
 
-fit!(tuned_mach_XGB)
 
-
-
-confusion_matrix(predict_mode(tuned_mach_XGB), all_train_data_output) #confusion matrix
-
-training_auc = auc(predict(tuned_mach_XGB), all_train_data_output)
-
-misclassification_rate = mean(predict(tuned_mach_XGB) .!= all_train_data_output)
+test_predictions = predict_mode(tuned_mach_XGB, cleaned_test_data_PCA); #predicting labels with the tuned model on the test data
+df_test_predictions = DataFrame(id = [i for i in 1:length(test_predictions)], prediction = [test_predictions[i] for i in 1:length(test_predictions)]); #creating a DataFrame of the predicted labels
+CSV.write(joinpath(@__DIR__, "test_predictions_random_forest_PCA_Final.csv"), df_test_predictions) #saving a .CSV file with all the labels' predictions
 
 
 
-test_data = CSV.read(joinpath(@__DIR__, "test.csv"), DataFrame);
 
 
 
-dropmissing!(test_data);
-
-all_clean_const_test_data = select(test_data, Not(const_columns_indices));
-
-all_clean_uncorrelated_test_data = select(all_clean_const_test_data, Not(correlated_columns_indices));
-
-cleaned_test_data_PCA = MLJ.transform(mdenoise, all_clean_uncorrelated_test_data);
-
-
-
-test_predictions = predict_mode(tuned_mach_XGB, cleaned_test_data_PCA);
-
-df_test_predictions = DataFrame(id = [i for i in 1:length(test_predictions)], prediction = [test_predictions[i] for i in 1:length(test_predictions)]);
-
-CSV.write(joinpath(@__DIR__, "test_predictions_random_forest_PCA_Final.csv"), df_test_predictions)
