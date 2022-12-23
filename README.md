@@ -4,7 +4,7 @@ Welcome to our Machine Learning Miniproject.
 
 Here we tried to predict under which experimental conditions different cell types were measured, given their gene expression level by building models based on linear and non-linear methods.
 
-## Methods used to build models
+## Methods used to build our models
 
 We used several linear and non-linear methods to achieve our results, such as :
 
