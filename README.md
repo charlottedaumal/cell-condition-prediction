@@ -1,11 +1,8 @@
 # Epigenetics and Memory ML Project
-The goal of our Machine Learning mini project is to predict under which experimental conditions different cell types were measured, given their gene expression level.
 
-## Requirements
+Welcome to our Machine Learning project.  
 
-* Use a Julia environment **v1.7**.
-* The package **Pkg** is essential to run all the code scripts and to use the MLCourse related packages.
-_Note_: if you get an error when loading packages, use the command 'Pkg.add("The wanted Package")' to include the missing packages in your .jl script.
+Here we tried to predict under which experimental conditions different cell types were measured, given their gene expression level by building models based on linear and non-linear methods.
 
 ## Methods used to build models
 
@@ -33,6 +30,12 @@ One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML
   * graphs of the proportion of the variance and tcumulative proportion of variance explained by data's predictors.
   * confusion matrices for all our models.
 * a report which explains how we cleaned/visualized the data, which linear and nonlinear methods we implemented and the results we got.
+
+## Requirements
+
+* Use a Julia environment **v1.7**.
+* The package **Pkg** is essential to run all the code scripts and to use the MLCourse related packages.
+_Note_: if you get an error when loading packages, use the command 'Pkg.add("The wanted Package")' to include the missing packages in your .jl script.
 
 ## Instructions to run our code
 
