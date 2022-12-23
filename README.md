@@ -1,6 +1,6 @@
 # Epigenetics and Memory ML Project
 
-Welcome to our Machine Learning project.  
+Welcome to our Machine Learning Miniproject.  
 
 Here we tried to predict under which experimental conditions different cell types were measured, given their gene expression level by building models based on linear and non-linear methods.
 
@@ -41,7 +41,7 @@ _Note_: if you get an error when loading packages, use the command 'Pkg.add("The
 
 1. Download the .ZIP files available in this repository on Google Drive : https://drive.google.com/drive/folders/19PFEhJPrm3AXHuXpxQQnzs8CfaN4v8bU?usp=share_link
 2. Place these files in a folder named "data" in the GitHub repository on your computer.
-3. Run any file from the src folder to eitehr visualize the data or run specific linear or non-linear models.
+3. Run any file from the src folder to either visualize the data or run specific models based on linear or non-linear methods.
 
 ## Team Members
 
