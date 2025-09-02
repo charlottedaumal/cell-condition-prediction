@@ -54,7 +54,7 @@ To solve this classification task, we implemented and compared several linear an
 
 - All `.jl` scripts should be run from within the root of the repository
 
-> **Note:** Some models (especially nonlinear ones) may take a long time to run depending on your machine.
+> 💡**Note:** Some models (especially nonlinear ones) may take a long time to run depending on your machine.
 
 ---
 
