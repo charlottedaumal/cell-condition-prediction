@@ -26,21 +26,25 @@ To solve this classification task, we implemented and compared several linear an
 
 ## 💻 Repository Structure
 
-### 1) Code Scripts (in Julia `.jl`) - `/src/`
+### 1) Code Scripts (in Julia `.jl`)
+> `/src/`
 - Data visualization  
 - Data denoising  
 - Linear model implementation  
 - Nonlinear models implementation
 
-### 2) Data Visualizations - `/visualization/`
+### 2) Data Visualizations
+> `/visualization/`
 - PCA with feature vectors  
 - 2D PCA plots for cluster identification
 
-### 3) Model Evaluations - `/models_assessment/`
+### 3) Model Evaluations
+> `/models_assessment/`
 - Proportion of variance explained by predictors  
 - Confusion matrices for all models
 
-### 4) Report - `report.pdf`
+### 4) Report
+> `Final_Report.pdf`
 - Full explanation of our pipeline:  
   data cleaning, visualization, model building, results, and conclusions
 
