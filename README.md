@@ -1,7 +1,7 @@
-# Can You Guess the Condition ? ML Meets Epigenetics
+# From Expression to Experiment: Predicting Cell Condition
 
 **Authors:** Charlotte Daumal & Clemence Kiehl  
-**Context:** This mini-project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea at EPFL
+**Context:** This mini-project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea at EPFL  
 **Language:** Julia   
 **Date:** December 2022  
 
