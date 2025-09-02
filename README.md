@@ -1,7 +1,7 @@
-# Prediction of Cell Condition
+# Can You Guess the Condition ? ML Meets Epigenetics
 
 **Authors:** Charlotte Daumal & Clemence Kiehl  
-**Context:** This project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea  
+**Context:** This mini-project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea at EPFL
 **Language:** Julia   
 **Date:** December 2022  
 
@@ -9,55 +9,60 @@
 
 ## 📝 Project Description  
 
-In an experiment on epigenetics and memory, Giulia Santoni (from the lab of Johannes Gräff at EPFL) measured the gene expression levels in multiple cells of a mouse brain under three different conditions that we call KAT5, CBP and eGFP. In this project, the goal is to predict – as accurately as possible – for each cell the experimental condition (KAT5, CBP or eGFP) under which it was measured, given only the gene expression levels.
+In an experiment on epigenetics and memory, Giulia Santoni (from the lab of Johannes Gräff at EPFL) measured the gene expression levels in multiple cells of a mouse brain under three different conditions that we call KAT5, CBP and eGFP. In this project, the goal is to predict – as accurately as possible – for each cell the experimental condition (_KAT5_, _CBP_ or _eGFP_) under which it was measured, given only the gene expression levels.
 
 ---
 
-## Methods used to build our models
+## 🧠 Models used
 
-We used several linear and nonlinear methods to achieve our results, such as :
+To solve this classification task, we implemented and compared several linear and nonlinear models:
 
-* Logistic regression
-* Random Forest Classification
-* Neural Network
-* Simple KNN Classifier
-
----
-
-## Organisation
-
-One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML_Project* repository. It contains:
-
-* a folder **src** that contains the code in the format of .jl scripts, more specifically the code for:
-  * visualization of the data.
-  * denoising the data.
-  * a model based on a linear method.
-  * models based nonlinear methods.
-* a folder **visualization** that contains the different visualizations of the data, more specifically:
-  * a PCA visualization of the data with the vectors.
-  * a PCA visualization of the data in 2D to identify potential clusters.
-* a folder **models_assessment** that contains some evaluations of our models, more specifically:
-  * graphs of the proportion of the variance and tcumulative proportion of variance explained by data's predictors.
-  * confusion matrices for all our models.
-* a report which explains how we cleaned/visualized the data, which linear and nonlinear methods we implemented and the results we got.
+- Logistic Regression  
+- Random Forest Classifier  
+- Neural Network  
+- K-Nearest Neighbors (KNN)
 
 ---
 
-## Requirements
+## 💻 Repository Structure
 
-* Use a Julia environment **v1.7**.
-* In order to run our .jl scripts, please be in the repository *ClemenceKiehl/Epigenetics_and_Memory_ML_Project*. The different results can be reproduced by running the .jl scripts in the repository src.  
+### 1) `/src/` — Code Scripts (in Julia `.jl`)
+- Data visualization  
+- Data denoising  
+- Linear model implementation  
+- Nonlinear models implementation
 
-_Note_: depending on the model, it can take very long to get a result.
+### 2) `/visualization/` — Data Visualizations
+- PCA with feature vectors  
+- 2D PCA plots for cluster identification
+
+### 3) `/models_assessment/` — Model Evaluations
+- Proportion of variance explained by predictors  
+- Confusion matrices for all models
+
+### 4) `report.pdf`
+- Full explanation of our pipeline:  
+  data cleaning, visualization, model building, results, and conclusions
 
 ---
 
-## Instructions to run our code
+## 📝 Requirements
 
-1. Download the .ZIP files available in this repository on Google Drive : https://drive.google.com/drive/folders/19PFEhJPrm3AXHuXpxQQnzs8CfaN4v8bU?usp=share_link
-2. Place these files in a folder named "data" in the GitHub repository on your computer.
-3. Unzip the .ZIP files.
-4. Run any file from the src folder to either visualize the data or run specific models based on linear or nonlinear methods.
+- All `.jl` scripts should be run from within the root of the repository
+
+> **Note:** Some models (especially nonlinear ones) may take a long time to run depending on your machine.
+
+---
+
+## ⚙️ How to use it ?
+
+1. Download the `.ZIP` files from our shared [Google Drive folder](https://drive.google.com/drive/folders/19PFEhJPrm3AXHuXpxQQnzs8CfaN4v8bU?usp=share_link)
+2. Create a folder named `data/` at the root of the repository
+3. Move the downloaded ZIP files into the `data/` folder
+4. Unzip the files
+5. Run any `.jl` file from the `/src/` directory to:
+   - Visualize or denoise the data
+   - Train and evaluate a model
 
 ---
 
