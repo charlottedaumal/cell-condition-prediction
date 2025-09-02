@@ -26,6 +26,8 @@ To solve this classification task, we implemented and compared several linear an
 
 ## 💻 Repository Structure
 
+Here is an overview of the contents of this repository:
+
 ### 1) Code Scripts (in Julia `.jl`)
 > `/src/`
 - Data visualization  
