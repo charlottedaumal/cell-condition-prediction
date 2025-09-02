@@ -13,7 +13,7 @@ In an experiment on epigenetics and memory, Giulia Santoni (from the lab of Joha
 
 ---
 
-## 🧠 Models used
+## 🧠 Methods & Models
 
 To solve this classification task, we implemented and compared several linear and nonlinear models:
 
@@ -26,21 +26,21 @@ To solve this classification task, we implemented and compared several linear an
 
 ## 💻 Repository Structure
 
-### 1) `/src/` — Code Scripts (in Julia `.jl`)
+### 1) Code Scripts (in Julia `.jl`) - `/src/`
 - Data visualization  
 - Data denoising  
 - Linear model implementation  
 - Nonlinear models implementation
 
-### 2) `/visualization/` — Data Visualizations
+### 2) Data Visualizations - `/visualization/`
 - PCA with feature vectors  
 - 2D PCA plots for cluster identification
 
-### 3) `/models_assessment/` — Model Evaluations
+### 3) Model Evaluations - `/models_assessment/`
 - Proportion of variance explained by predictors  
 - Confusion matrices for all models
 
-### 4) `report.pdf`
+### 4) Report - `report.pdf`
 - Full explanation of our pipeline:  
   data cleaning, visualization, model building, results, and conclusions
 
