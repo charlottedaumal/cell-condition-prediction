@@ -1,8 +1,17 @@
-# Epigenetics and Memory ML Project
+# Prediction of Cell Condition
 
-Welcome to our Machine Learning Mini Project.  
+**Authors:** Charlotte Daumal & Clemence Kiehl
+**Context:** This project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea
+**Language:** Julia  
+**Date:** December 2022
 
-Here we tried to predict under which experimental conditions different cell types were measured, given their gene expression level by building models based on linear and nonlinear methods.
+---
+
+## 📝 Project Description  
+
+In an experiment on epigenetics and memory, Giulia Santoni (from the lab of Johannes Gräff at EPFL) measured the gene expression levels in multiple cells of a mouse brain under three different conditions that we call KAT5, CBP and eGFP. In this project, the goal is to predict – as accurately as possible – for each cell the experimental condition (KAT5, CBP or eGFP) under which it was measured, given only the gene expression levels.
+
+---
 
 ## Methods used to build our models
 
@@ -12,6 +21,8 @@ We used several linear and nonlinear methods to achieve our results, such as :
 * Random Forest Classification
 * Neural Network
 * Simple KNN Classifier
+
+---
 
 ## Organisation
 
@@ -30,12 +41,16 @@ One can find our mini project under the *ClemenceKiehl/Epigenetics_and_Memory_ML
   * confusion matrices for all our models.
 * a report which explains how we cleaned/visualized the data, which linear and nonlinear methods we implemented and the results we got.
 
+---
+
 ## Requirements
 
 * Use a Julia environment **v1.7**.
 * In order to run our .jl scripts, please be in the repository *ClemenceKiehl/Epigenetics_and_Memory_ML_Project*. The different results can be reproduced by running the .jl scripts in the repository src.  
 
 _Note_: depending on the model, it can take very long to get a result.
+
+---
 
 ## Instructions to run our code
 
@@ -44,7 +59,9 @@ _Note_: depending on the model, it can take very long to get a result.
 3. Unzip the .ZIP files.
 4. Run any file from the src folder to either visualize the data or run specific models based on linear or nonlinear methods.
 
-## Team Members
+---
 
-* Charlotte Daumal
-* Clémence Kiehl
+## License
+
+This project is for educational purposes.  
+Content © Charlotte Daumal & Clemence Kiehl. Academic use only.
