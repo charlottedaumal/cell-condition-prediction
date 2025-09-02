@@ -1,9 +1,9 @@
 # Prediction of Cell Condition
 
-**Authors:** Charlotte Daumal & Clemence Kiehl
-**Context:** This project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea
-**Language:** Julia  
-**Date:** December 2022
+**Authors:** Charlotte Daumal & Clemence Kiehl  
+**Context:** This project was completed as part of the *Introduction to machine learning for bioengineers* course taught by Prof. Johanni Brea  
+**Language:** Julia   
+**Date:** December 2022  
 
 ---
 
