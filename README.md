@@ -7,7 +7,7 @@
 
 ---
 
-## 📝 Project Description  
+## 📘 Project Description  
 
 In an experiment on epigenetics and memory, Giulia Santoni (from the lab of Johannes Gräff at EPFL) measured the gene expression levels in multiple cells of a mouse brain under three different conditions that we call KAT5, CBP and eGFP. In this project, the goal is to predict – as accurately as possible – for each cell the experimental condition (_KAT5_, _CBP_ or _eGFP_) under which it was measured, given only the gene expression levels.
 
